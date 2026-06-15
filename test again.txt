@@ -1,0 +1,94 @@
+Stage all changesgit add fileStage one filegit commit -m "msg"Save a snapshotgit push origin mainPush to GitHubgit pushPush (after -u is set)git log --onelineSee past commits
+
+Common Errors & Fixes
+❌ rejected / failed to push
+bashgit pull origin main --rebase
+git push origin main
+❌ Authentication failed
+
+Use a Personal Access Token (PAT) as your password, not your GitHub password.
+
+❌ Branch not found (main vs master)
+bashgit branch -M main   # rename branch to main
+git push -u origin main
+
+Let me know if you hit any error and paste the message — I'll help you fix it!You said: for new repofor new repo3:10 PMClaude responded: Here are the exact steps to create and push a brand new repo from Git Bash:Here are the exact steps to create and push a brand new repo from Git Bash:
+
+Step 1 — Create repo on GitHub
+
+Go to → github.com/new
+Enter a repo name (e.g. my-project)
+Leave it empty (no README, no .gitignore)
+Click Create repository
+
+
+Step 2 — Open Git Bash and run these commands
+bash# 1. Create a new folder
+mkdir my-project
+cd my-project
+
+# 2. Initialize Git
+git init
+
+# 3. Create a README file
+echo "# my-project" > README.md
+
+# 4. Stage the file
+git add .
+
+# 5. First commit
+git commit -m "first commit"
+
+# 6. Rename branch to main
+git branch -M main
+
+# 7. Connect to YOUR GitHub repo
+git remote add origin https://github.com/praveen1hub/my-project.git
+
+# 8. Push to GitHub
+git push -u origin main
+
+Already have a project folder?
+bashcd /c/Users/praveen/your-existing-folder
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/praveen1hub/my-project.git
+git push -u origin main
+
+
+✅ Replace my-project with your actual repo name from GitHub
+✅ After this first push, next time just use git push
+
+Paste any error message here if something goes wrong — I'll help fix it!You said: hp@pjspavilion MINGW64 ~ (master)hp@pjspavilion MINGW64 ~ (master)
+$ git remote add ;
+git branch -M main
+git push -u origin main
+usage: git remote add [<options>] <name> <url>
+    -f, --[no-]fetch      fetch the remote branches
+    --[no-]tags           import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --[no-]track <branch>
+                          branch(es) to track
+    -m, --[no-]master <branch>
+                          master branch
+    --[no-]mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:praveenlattala12/my-app.git'Show more3:18 PMClaude responded: You have 2 issues.You have 2 issues. Let me fix both:
+
+Problem 1 — git remote add is missing the URL
+You typed git remote add ; — the URL was missing. Fix it:
+bash# Remove the broken remote first
+git remote remove origin
+
+# Add it correctly
+git remote add origin https://github.com/praveen1hub/my-app.git
+
+Problem 2 — No commits yet / branch is master not main
+I can see your branch is master in your prompt. Run:
+bash# Check if you have any commits
+git log --oneline
+If no commits yet:
