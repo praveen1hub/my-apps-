@@ -6,7 +6,7 @@ from app import app
 def client():
     app.config['TESTING'] = True
     with app.test_client() as client:
-        yield client
+        yield client 
 
 
 def test_app_is_working(client):
